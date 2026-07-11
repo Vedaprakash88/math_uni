@@ -100,7 +100,7 @@ def printGrid2d(grid2d, path=""):
     for j, row in enumerate(grid2d):
         for i, col in enumerate(row):
             if (j, i) in pos:
-                print("⁛     ", end="")
+                print("*     ", end="")
             else:
                 print(col, "    ", end="")
         print()

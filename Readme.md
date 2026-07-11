@@ -44,9 +44,44 @@ $$y_i = m_{\text{ray}} \cdot x_i + c_{\text{ray}}$$
 
 ## Maze Solver Algorithm (`gridPath.py`)
 
-The maze solving tool finds the path from a start position `'S'` to a finish position `'F'` in a 2D grid:
-- The grid consists of traversable space (`0`), walls (`1`), a start (`'S'`), and a finish (`'F'`).
-- The BFS algorithm explores valid moves (Left, Right, Up, Down) queue-by-queue, guaranteeing the shortest path in an unweighted grid.
+The maze solving tool finds the shortest path from a start position `'S'` to a finish position `'F'` in a 2D grid:
+- **`1`** represents walls/obstacles.
+- **`0`** represents open path cells.
+- **`S`** represents the start position.
+- **`F`** represents the finish/destination position.
+- **`*`** represents the path traversed by the algorithm.
+
+The Breadth-First Search (BFS) algorithm explores valid moves—**L**eft, **R**ight, **U**p, **D**own—queue-by-queue, guaranteeing the shortest path in an unweighted grid.
+
+### Sample Maze Configuration
+The script defines a default grid maze (`maze2`):
+```text
+1  1  1  1  1  S  1  1  1
+1  0  0  0  0  0  0  0  1
+1  0  1  1  0  1  1  0  1
+1  0  1  0  0  0  1  0  1
+1  0  1  0  1  0  1  0  1
+1  0  1  0  1  0  1  0  1
+1  0  1  0  1  0  1  1  1
+1  0  0  0  0  0  0  0  1
+1  1  1  1  1  1  1  F  1
+```
+
+### Program Run and Output
+When running `python gridPath.py`, the solver outputs the move sequence (`DLDDRDDDDRRD`) and visualizes the traversed path using `*`:
+
+```text
+Found: DLDDRDDDDRRD
+1     1     1     1     1     S     1     1     1     
+1     0     0     0     *     *     0     0     1     
+1     0     1     1     *     1     1     0     1     
+1     0     1     0     *     *     1     0     1     
+1     0     1     0     1     *     1     0     1     
+1     0     1     0     1     *     1     0     1     
+1     0     1     0     1     *     1     1     1     
+1     0     0     0     0     *     *     *     1     
+1     1     1     1     1     1     1     *     1     
+```
 
 ---
 
